@@ -40,7 +40,6 @@ function Header(props){
             <div className="search">
                 <TextField onInput={onInputSearch} value={searchText} type="text" placeholder="Поиск" form="defaultClear"/>
                 <Button label="В" view="secondary" iconLeft={IconSearch} onlyIcon onClick={search} form="brickDefault"/>
-                {/*onClick={search}*/}
             </div>
         </header>
     );
