@@ -1,0 +1,104 @@
+body{
+    margin: unset;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    margin: 0 0 10px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    right: 40px;
+    left: 40px;
+    padding: 50px 0;
+    border-top: 1px solid #c4c4c4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.window{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(3px);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window_inputBlock{
+    background-color: #0aa4fd;
+    border-radius: 5px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.window_input{
+    outline: unset;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: unset;
+    border-radius: 5px;
+    margin-bottom: 1px;
+    border-bottom: unset;
+}
+
+.table{
+    padding: 0 50px;
+    max-height: calc(100vh - 230px);
+    overflow-y: scroll;
+}
+
+.table::-webkit-scrollbar{
+    width: 5px;
+}
+
+.table::-webkit-scrollbar-track{
+    background: unset;
+}
+
+.table::-webkit-scrollbar-thumb{
+    background-color: #0065ac;
+    border-radius: 10px;
+}
+
+.TableCell-Wrapper{
+    font-size: 16px;
+}
+
+.Table-ContentCell{
+    font-size: 17px;
+}
+
+.round_position{
+    bottom: 2px;
+}
+
+.footer_select{
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+
+.Text_view_secondary{
+    min-width: 120px;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+}
+
+.Theme {
+    z-index: 10;
+}
+
