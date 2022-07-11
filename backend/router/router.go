@@ -18,8 +18,6 @@ func Initialized() *gin.Engine {
 	routerAPI.PUT("/addOrder", addOrder)
 	routerAPI.GET("/getZones", getZones)
 	routerAPI.POST("/getTableData", getTableData)
-	routerAPI.GET("/getStates", getStates)
-	routerAPI.POST("/setState", setState)
 
 	return router
 }
@@ -39,22 +37,6 @@ func Initialized() *gin.Engine {
 //		c.Next()
 //	}
 //}
-
-func setState(c *gin.Context) {
-	var setNewState database.Order
-	e := c.BindJSON(&setNewState)
-	if e != nil {
-		utils.Logger.Println(e)
-		return
-	}
-	c.JSON(200, setNewState.SetState())
-}
-
-func getStates(c *gin.Context) {
-	var states []string
-	states = database.GetStates()
-	c.JSON(200, states)
-}
 
 func getTableData(c *gin.Context) {
 	var searchText database.Search

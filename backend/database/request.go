@@ -49,61 +49,7 @@ func prepareRequest() []string {
 		errors = append(errors, e.Error())
 	}
 
-	query["GetStates"], e = Link.Prepare(`SELECT "id", "Name" FROM "States"`)
-	if e != nil {
-		errors = append(errors, e.Error())
-	}
-
-	query["SetState"], e = Link.Prepare(`UPDATE "Orders" SET "State" = $1 WHERE "ID" = $2`)
-	if e != nil {
-		errors = append(errors, e.Error())
-	}
-
 	return errors
-}
-
-func (s *Order) SetState() bool {
-	stmt, ok := query["SetState"]
-	if !ok {
-		utils.Logger.Println("query не найден")
-		return false
-	}
-
-	_, e := stmt.Exec(s.State, s.ID)
-	if e != nil {
-		utils.Logger.Println(e)
-		return false
-	}
-
-	return true
-}
-
-func GetStates() []string {
-	var states []string
-	stmt, ok := query["GetStates"]
-	if !ok {
-		utils.Logger.Println("query не найден")
-		return nil
-	}
-
-	rows, e := stmt.Query()
-	if e != nil {
-		utils.Logger.Println(e)
-		return nil
-	}
-
-	for rows.Next() {
-		var state string
-		e = rows.Scan(&state)
-		if e != nil {
-			utils.Logger.Println(e)
-			return nil
-		}
-
-		states = append(states, state)
-	}
-
-	return states
 }
 
 func GetTableData(searchText string) []Order {
